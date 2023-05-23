@@ -226,6 +226,16 @@ export interface News extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
+   * Category — `category`
+   *
+   *
+   */
+
+   category?:
+    | "Bulletin"
+    | "Newsletter";
+
+/**
    * Images — `image`
    *
    *

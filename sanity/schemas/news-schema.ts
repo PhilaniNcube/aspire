@@ -9,6 +9,17 @@ const news = {
         type: 'string',
       },
       {
+       name: "category",
+        title: "Category",
+        type: "string",
+        options: {
+          list: [
+            { title: "Bulletin", value: "Bulletin" },
+            { title: "Newsletter", value: "Newsletter" },
+          ]
+        }
+      },
+      {
         name: 'slug',
         title: 'Slug',
         type: 'slug',
