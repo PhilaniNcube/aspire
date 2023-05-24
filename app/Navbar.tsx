@@ -19,6 +19,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import MobileNav from "./MobileNav";
 
 
 const socials = [
@@ -240,6 +241,12 @@ const Navbar =  ({projects, docs}:Props) => {
           </NavigationMenu>
         </div>
         {/* Desktop Navigation Ends*/}
+
+
+
+        {/* Mobile Navigation Starts*/}
+        <MobileNav projects={projects} />
+        {/* Mobile Navigation Ends*/}
       </Container>
     </header>
   );
