@@ -254,7 +254,7 @@ export interface News extends SanityDocument {
    *
    *
    */
-  author?: SanityReference<Author>;
+  author?: string;
 }
 
 /**

@@ -25,7 +25,7 @@ const day = new Date().getFullYear();
               to socio-economic opportunities.
             </p>
 
-            <div className="mt-7">
+            {/* <div className="mt-7">
               <Link href="https://sacoronavirus.co.za">
                 <p className="text-lg font-medium text-teal-600">
                   Government Covid-19 Portal
@@ -38,7 +38,7 @@ const day = new Date().getFullYear();
                   alt="Logo"
                 />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-col justify-start w-full lg:w-1/4">

@@ -182,7 +182,7 @@ export async function getNews():Promise<News[]>  {
       name,
       _createdAt,
       slug,
-      author,
+      "author":author->name,
       content,
        "image":image.asset->url,
     }
@@ -200,7 +200,7 @@ export async function getNewsArticle(slug:string):Promise<News>  {
       name,
       _createdAt,
       slug,
-      author,
+      "author":author->name,
       content,
       "image":image.asset->url,
     }
