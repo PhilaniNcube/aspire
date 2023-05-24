@@ -74,18 +74,18 @@ const about = [
     title: "About Us",
     href: "/about-us",
   },
-  {
-    title: "Governance Structures",
-    href: "/governance-structures",
-  },
-  {
-    title: "Management",
-    href: "/management",
-  },
-  {
-    title: "Our Objectives",
-    href: "/our-objectives",
-  }
+  // {
+  //   title: "Governance Structures",
+  //   href: "/governance-structures",
+  // },
+  // {
+  //   title: "Management",
+  //   href: "/management",
+  // },
+  // {
+  //   title: "Our Objectives",
+  //   href: "/our-objectives",
+  // }
 ]
 
 type Props = {
@@ -231,13 +231,13 @@ const Navbar =  ({projects, docs}:Props) => {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact Us
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
           </NavigationMenu>
         </div>
         {/* Desktop Navigation Ends*/}
