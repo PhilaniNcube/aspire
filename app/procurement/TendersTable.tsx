@@ -1,3 +1,5 @@
+"use client"
+
 import { Doc, Tender } from "@/schema";
 import {
   Table,
@@ -10,12 +12,15 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { DownloadCloudIcon, PaperclipIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Props = {
   tenders: Tender[];
 };
 
 const TendersTable = ({ tenders }: Props) => {
+
+  const router = useRouter();
 
   console.log({tenders})
 
@@ -34,7 +39,7 @@ const TendersTable = ({ tenders }: Props) => {
       </TableHeader>
       <TableBody>
         {tenders.map((tender, index) => (
-          <TableRow key={index}>
+          <TableRow key={index} onClick={() => router.push(`/procurement/${tender.slug?.current}`)}>
             <TableCell>{tender.tenderNumber}</TableCell>
             <TableCell>{tender.name}</TableCell>
             <TableCell>{tender.price}</TableCell>

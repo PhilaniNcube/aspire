@@ -106,7 +106,7 @@ export async function getTenders():Promise<Tender[]>  {
       awarded,
       price,
       "tenderDocument":tenderDocument.asset->url,
-    }
+    } | order(closingDate desc)
     `)
 
 }
