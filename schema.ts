@@ -187,6 +187,12 @@ export interface Tender extends SanityDocument {
    *
    */
   tenderDocument?: string;
+  /**
+   * Tender Documents — `array`
+   *
+   *
+   *
+   *
 
   /**
    * Awarded — `boolean`
@@ -201,6 +207,8 @@ export interface Tender extends SanityDocument {
    *
    */
   price?: number;
+
+  closeOutDocument?: string;
 }
 
 /**

@@ -95,7 +95,7 @@ export async function getTenders():Promise<Tender[]>  {
 
   return  client.fetch(
     groq`
-    *[ _type == "tender" ] {
+    *[ _type == "tender" && awarded == false ] {
       _id,
       name,
       _createdAt,
@@ -106,6 +106,28 @@ export async function getTenders():Promise<Tender[]>  {
       awarded,
       price,
       "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `)
+
+}
+
+export async function getClosedTenders():Promise<Tender[]>  {
+
+  return  client.fetch(
+    groq`
+    *[ _type == "tender" && awarded == true ] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
     } | order(closingDate desc)
     `)
 
@@ -127,6 +149,7 @@ export async function getTender(slug:string):Promise<Tender>  {
       awarded,
       price,
       "tenderDocument": tenderDocument.asset->url,
+      "closeOutDocument": closeOutDocument.asset->url,
     }
     `,
     {slug})

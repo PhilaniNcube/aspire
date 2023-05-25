@@ -27,12 +27,18 @@ const page = async ({ params: { slug } }: Props) => {
         <h2 className="text-lg mt-2 font-semibold">
           Document Price: {fromatter(tender.price!)}
         </h2>
-        <Link href={tender.tenderDocument!}>
-          {" "}
-          <Button className="mt-4" >
-            Download Document
-          </Button>
-        </Link>
+
+        {tender.awarded ? (
+          <Link href={tender.closeOutDocument!}>
+            {" "}
+            <Button className="mt-4">Close Out Document</Button>
+          </Link>
+        ) : (
+          <Link href={tender.tenderDocument!}>
+            {" "}
+            <Button className="mt-4">Download Document</Button>
+          </Link>
+        )}
       </div>
     </Container>
   );

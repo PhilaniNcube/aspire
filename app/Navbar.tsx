@@ -204,19 +204,54 @@ const Navbar =  ({projects, docs}:Props) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <NavigationMenuTrigger>Procurement</NavigationMenuTrigger>
+              <NavigationMenuContent className="">
+                <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                  <li >
+                    <Link
+                      href={`/procurement`}
+                      legacyBehavior
+                      passHref
+                      className="cursor-pointer"
+                    >
+                      <NavigationMenuLink
+                        asChild
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        <span className="font-medium cursor-pointer text-neutral-700">
+                         Open Tenders
+                        </span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                  <li >
+                    <Link
+                      href={`/procurement/closed-tenders`}
+                      legacyBehavior
+                      passHref
+                      className="cursor-pointer"
+                    >
+                      <NavigationMenuLink
+                        asChild
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        <span className="font-medium cursor-pointer text-neutral-700">
+                         Closed Tenders
+                        </span>
+                      </NavigationMenuLink>
+                    </Link>
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/documents" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Documents
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/procurement" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Procurement
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+
             <NavigationMenuItem>
               <Link href="/vacancies" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -241,8 +276,6 @@ const Navbar =  ({projects, docs}:Props) => {
           </NavigationMenu>
         </div>
         {/* Desktop Navigation Ends*/}
-
-
 
         {/* Mobile Navigation Starts*/}
         <MobileNav projects={projects} />

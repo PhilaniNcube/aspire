@@ -45,6 +45,11 @@ const tender = {
         name: "price",
         title: "Price",
         type: "number",
+      },
+      {
+        name: "closeOutDocument",
+        title: "Close Out Document",
+        type: "file",
       }
     ]
 }

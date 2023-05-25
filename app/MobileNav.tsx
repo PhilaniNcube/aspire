@@ -112,6 +112,12 @@ const MobileNav = ({projects}:Props) => {
               Procurement
             </Link>
             <Link
+              href="/procurement/closed-tenders"
+              className="text-sm text-slate-700 font-medium"
+            >
+              Closed Tenders
+            </Link>
+            <Link
               href="/vacancies"
               className="text-sm text-slate-700 font-medium"
             >

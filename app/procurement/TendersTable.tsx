@@ -40,17 +40,31 @@ const TendersTable = ({ tenders }: Props) => {
       </TableHeader>
       <TableBody>
         {tenders.map((tender, index) => (
-          <TableRow key={index} onClick={() => router.push(`/procurement/${tender.slug?.current}`)}>
+          <TableRow
+            key={index}
+            onClick={() => router.push(`/procurement/${tender.slug?.current}`)}
+          >
             <TableCell>{tender.tenderNumber}</TableCell>
             <TableCell>{tender.name}</TableCell>
             <TableCell>{formatter(tender.price!)}</TableCell>
             <TableCell>{tender.closingDate}</TableCell>
             <TableCell>{tender.awarded ? "Awarded" : "Not Awarded"}</TableCell>
             <TableCell>
-              {" "}
-              <Link href={tender.tenderDocument!} className="hover:text-blue-600">
-                <DownloadCloudIcon size={24} />
-              </Link>
+              {tender.awarded ? (
+                <Link
+                  href={tender.closeOutDocument!}
+                  className="hover:text-blue-600"
+                >
+                  <DownloadCloudIcon size={24} />
+                </Link>
+              ) : (
+                <Link
+                  href={tender.tenderDocument!}
+                  className="hover:text-blue-600"
+                >
+                  <DownloadCloudIcon size={24} />
+                </Link>
+              )}
             </TableCell>
           </TableRow>
         ))}
