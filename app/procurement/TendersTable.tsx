@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { DownloadCloudIcon, PaperclipIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import formatter from "@/utils/formatCurrency";
 
 type Props = {
   tenders: Tender[];
@@ -42,7 +43,7 @@ const TendersTable = ({ tenders }: Props) => {
           <TableRow key={index} onClick={() => router.push(`/procurement/${tender.slug?.current}`)}>
             <TableCell>{tender.tenderNumber}</TableCell>
             <TableCell>{tender.name}</TableCell>
-            <TableCell>{tender.price}</TableCell>
+            <TableCell>{formatter(tender.price!)}</TableCell>
             <TableCell>{tender.closingDate}</TableCell>
             <TableCell>{tender.awarded ? "Awarded" : "Not Awarded"}</TableCell>
             <TableCell>
