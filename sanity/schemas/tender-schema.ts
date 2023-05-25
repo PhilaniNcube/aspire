@@ -39,7 +39,8 @@ const tender = {
       {
         name: 'awarded',
         title: 'Awarded',
-        type: 'boolean'
+        type: 'boolean',
+        default: false
       },
       {
         name: "price",
