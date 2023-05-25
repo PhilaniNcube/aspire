@@ -1,10 +1,12 @@
 import { TypographyH1 } from "@/components/typography";
 import Container from "@/components/ui/Container";
 import { Separator } from "@/components/ui/separator";
-import { getNewsArticle, getProject } from "@/sanity/sanity-utils";
+import { getNewsArticle, getProject, getNews } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import { CloudSnowIcon, LocateIcon } from "lucide-react";
 import Image from "next/image";
+
+export const revalidate = 60;
 
 type Props = {
   params: {
@@ -38,3 +40,16 @@ const page = async ({ params: { slug } }: Props) => {
   );
 };
 export default page;
+
+
+export async function generateStaticParams() {
+  const articlesData =  getNews();
+
+  const [articles] = await Promise.all([articlesData]);
+
+  return articles.map((article) => ({
+    params: {
+      slug: article.slug?.current,
+    },
+  }));
+}

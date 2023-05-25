@@ -2,6 +2,8 @@ import Container from "@/components/ui/Container";
 import { getTenders } from "@/sanity/sanity-utils";
 import TendersTable from "./TendersTable";
 
+export const revalidate = 60;
+
 const page = async () => {
 
   const tendersData = getTenders()
