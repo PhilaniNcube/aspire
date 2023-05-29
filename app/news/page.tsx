@@ -4,6 +4,8 @@ import { getNews } from "@/sanity/sanity-utils";
 import NewsArticle from "./NewsArticle";
 import { Metadata } from "next";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Latest News and Blog Articles | Aspire",
   description:
