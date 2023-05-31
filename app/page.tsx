@@ -3,9 +3,10 @@ import Hero from './Hero'
 import Focus from './Focus'
 import AspireContent from './AspireContent'
 import Mission from './Mission'
-import {  getProjects, getProjectsIDs } from '@/sanity/sanity-utils'
+import {  getMainArticles, getProjects, getProjectsIDs } from '@/sanity/sanity-utils'
 import ProjectsSection from './ProjectsSection'
 import { Metadata } from "next";
+import Carousel from './Carousel'
 
 export const metadata: Metadata = {
   title: "Latest News and Blog Articles | Aspire",
@@ -32,12 +33,16 @@ export const metadata: Metadata = {
 export default async function Home() {
 
   const projectsData = getProjects()
+  const articlesData = getMainArticles()
 
-  const [projects] = await Promise.all([projectsData])
+  const [projects, articles] = await Promise.all([projectsData, articlesData]);
+
+  console.log({articles})
 
   return (
     <main className="">
-      <Hero />
+      {/* <Hero /> */}
+      <Carousel articles={articles} />
       <Focus />
       <AspireContent />
       <Mission />

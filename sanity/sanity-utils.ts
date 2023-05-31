@@ -213,6 +213,23 @@ export async function getNews():Promise<News[]>  {
 
 }
 
+export async function getMainArticles():Promise<News[]>  {
+
+  return  client.fetch(
+    groq`
+    *[ _type == "news"  ]| order(_createdAt)[0...2] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      "author":author->name,
+      content,
+       "image":image.asset->url,
+    }
+    `)
+
+}
+
 
 export async function getNewsArticle(slug:string):Promise<News>  {
 
