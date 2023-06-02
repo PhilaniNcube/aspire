@@ -5,7 +5,7 @@ import { getTender, getTenders } from "@/sanity/sanity-utils";
 import fromatter from "@/utils/formatCurrency"
 import Link from "next/link";
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 type Props ={
   params: {
