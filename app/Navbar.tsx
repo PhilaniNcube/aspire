@@ -245,6 +245,13 @@ const Navbar =  ({projects, docs}:Props) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <Link href="/publications" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Publications
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
               <Link href="/documents" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Documents
