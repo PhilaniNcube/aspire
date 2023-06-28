@@ -25,7 +25,7 @@ twitter: {
 
 };
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 const page = async () => {
 
