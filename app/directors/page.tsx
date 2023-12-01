@@ -11,27 +11,27 @@ const directors = [
   {
     name: "Adv M Sotenjwa",
     position: "Chairperson of the Social and Ethics Committee",
-    image: "/images/sotenjwa.jpg",
+    image: "/images/sotenjwa.webp",
   },
   {
     name: "Mr S Toni",
     position: "Chairperson of the Projects Committee",
-    image: "/images/toni.jpg",
+    image: "/images/toni.webp",
   },
   {
     name: "Ms N Ntshanga",
     position: "Chairperson of the Finance Committee",
-    image: "/images/ntshanga.jpg",
+    image: "/images/ntshanga.webp",
   },
   {
     name: "Ms T Wana",
     position: "Board Member",
-    image: "/images/wana.jpg",
+    image: "/images/wana.webp",
   },
   {
     name: "Mr B Ondala",
     position: "Board Member",
-    image: "/images/ondala.jpg",
+    image: "/images/ondala.webp",
   },
 ];
 
