@@ -47,7 +47,7 @@ const day = new Date().getFullYear();
               <div className="flex space-x-2">
                 <PinIcon strokeWidth={1} size={32} className="text-white" />
                 <p className="font-medium text-white text-md">
-                  3-33 Phillip Frame Road, Chiselhurrst, East London, 5201
+                  14 Fitzpatrick Road, Quigney
                 </p>
               </div>
               <div className="flex space-x-2">
@@ -109,13 +109,17 @@ const day = new Date().getFullYear();
               <Link href="/projects" className="text-lg font-medium text-white">
                 Projects
               </Link>
-
             </div>
           </div>
         </div>
         <p className="text-sm text-white">
-          &copy;{" "}{day} developed by{" "}
-          <Link href="https://athenamedia.co.za" className="italic hover:underline">Athena Media</Link>
+          &copy; {day} developed by{" "}
+          <Link
+            href="https://athenamedia.co.za"
+            className="italic hover:underline"
+          >
+            Athena Media
+          </Link>
         </p>
       </Container>
     </footer>
