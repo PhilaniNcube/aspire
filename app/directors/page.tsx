@@ -5,7 +5,7 @@ import Image from "next/image";
 const directors = [
   {
     name: "Mr Luthando Jack",
-    potion: "Chairperson of the Board",
+    position: "Chairperson of the Board",
     image: "/images/luthando.jpg",
   },
   {
