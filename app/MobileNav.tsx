@@ -62,13 +62,13 @@ const MobileNav = ({projects}:Props) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full flex lg:hidden justify-between items-center">
+    <div className="flex items-center justify-between w-full lg:hidden">
       <div className="flex items-center">
         <Link href="/">
           <img
             src="/images/logo.png"
             alt="logo"
-            className="w-24 object-cover"
+            className="object-cover w-24"
           />
         </Link>
       </div>
@@ -80,54 +80,60 @@ const MobileNav = ({projects}:Props) => {
           <SheetHeader>
             <SheetTitle>Menu</SheetTitle>
           </SheetHeader>
-          <div className="w-full flex flex-col space-y-3">
+          <div className="flex flex-col w-full space-y-3">
             <Link
               href="/about/about-us"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               About Us
             </Link>
             {/* <Link
               href="/about/governance-structures"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Governance Structures
             </Link>
             <Link
               href="/about/management"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Management
             </Link> */}
             <Link
               href="/documents"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Documents
             </Link>
             <Link
               href="/procurement"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Procurement
             </Link>
             <Link
               href="/procurement/closed-tenders"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Closed Tenders
             </Link>
             <Link
               href="/vacancies"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Vacancies
             </Link>
             <Link
               href="/projects"
-              className="text-sm text-slate-700 font-medium"
+              className="text-sm font-medium text-slate-700"
             >
               Projects
+            </Link>
+            <Link
+              href="/board"
+              className="text-sm font-medium text-slate-700"
+            >
+              Board Of Directors
             </Link>
 
           </div>

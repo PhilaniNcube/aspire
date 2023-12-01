@@ -74,10 +74,10 @@ const about = [
     title: "About Us",
     href: "/about-us",
   },
-  // {
-  //   title: "Governance Structures",
-  //   href: "/governance-structures",
-  // },
+  {
+    title: "Objectives",
+    href: "/objectives",
+  },
   // {
   //   title: "Management",
   //   href: "/management",
