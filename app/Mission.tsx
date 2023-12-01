@@ -50,7 +50,7 @@ const Mission = () => {
                <h4 className="text-lg font-semibold text-aspire lg:text-2xl">{link.title}</h4>
                 <p className="mt-2 text-gray-500 lg:pr-16">{link.text}</p>
                 <div className="mt-4">
-                 <Link href={link.href} className="px-6 py-2 mt-3 text-white transition-all duration-200 rounded-lg cursor-pointer bg-aspire hover:bg-yellow-700">Read More</Link>
+                 {/* <Link href={link.href} className="px-6 py-2 mt-3 text-white transition-all duration-200 rounded-lg cursor-pointer bg-aspire hover:bg-yellow-700">Read More</Link> */}
                 </div>
               </div>
             </div>

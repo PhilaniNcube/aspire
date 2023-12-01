@@ -20,7 +20,7 @@ const DocumentsTable = ({documents}:Props) => {
 
   return (
     <Table>
-      <TableCaption> A list of Aspire Documents</TableCaption>
+      <TableCaption> A list of ASPIRE Documents</TableCaption>
       <TableHeader>
         <TableRow className="text-lg font-semibold">
           <TableHead>Document Name</TableHead>

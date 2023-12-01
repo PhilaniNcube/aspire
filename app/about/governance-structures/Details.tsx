@@ -111,7 +111,7 @@ const Details = () => {
             approach, the Projects Committee will particularly focus on gaps
             within wider international support on development readiness and
             through programmatic and capacity-embedding functions will assist
-            targeted Local Municipalities within Aspire Development Agency
+            targeted Local Municipalities within ASPIRE Development Agency
             Service area. Provision of technical assistance, knowledge creation
             and transfer to selected Local Municipalities and collaborating with
             Amathole District Municipality&apos;s PMO and other organizations on
