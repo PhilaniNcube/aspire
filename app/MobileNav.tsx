@@ -135,6 +135,12 @@ const MobileNav = ({projects}:Props) => {
             >
               Board Of Directors
             </Link>
+            <Link
+              href="/investments"
+              className="text-sm font-medium text-slate-700"
+            >
+             Investments
+            </Link>
 
           </div>
         </SheetContent>

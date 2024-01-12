@@ -280,6 +280,13 @@ const Navbar =  ({projects, docs}:Props) => {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/investments" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Investments
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
             {/* <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
