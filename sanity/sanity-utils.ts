@@ -217,7 +217,7 @@ export async function getMainArticles():Promise<News[]>  {
 
   return  client.fetch(
     groq`
-    *[ _type == "news"  ]| order(_createdAt)[0...2] {
+    *[ _type == "news"  ]| order(_createdAt desc)[0...2] {
       _id,
       name,
       _createdAt,
