@@ -104,9 +104,9 @@ const Navbar =  ({projects, docs}:Props) => {
           <div>
             <Link href="/">
               <Image
-                src="/images/logo.png"
-                width={150}
-                height={70}
+                src="/images/logo.webp"
+                width={2016}
+                height={966}
                 alt="ASPIRE Logo"
                 className="object-cover w-36"
               />

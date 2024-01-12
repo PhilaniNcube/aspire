@@ -66,7 +66,7 @@ const MobileNav = ({projects}:Props) => {
       <div className="flex items-center">
         <Link href="/">
           <img
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="logo"
             className="object-cover w-24"
           />
