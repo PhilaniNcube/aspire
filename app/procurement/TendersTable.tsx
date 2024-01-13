@@ -23,8 +23,6 @@ const TendersTable = ({ tenders }: Props) => {
 
   const router = useRouter();
 
-  console.log({tenders})
-
   return (
     <Table>
       <TableCaption> A list of Aspire Documents</TableCaption>

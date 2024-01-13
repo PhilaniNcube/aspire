@@ -37,8 +37,6 @@ export default async function Home() {
 
   const [projects, articles] = await Promise.all([projectsData, articlesData]);
 
-  console.log({articles})
-
   return (
     <main className="">
       {/* <Hero /> */}
