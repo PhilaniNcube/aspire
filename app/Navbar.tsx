@@ -98,15 +98,15 @@ const Navbar =  ({projects, docs}:Props) => {
 
 
   return (
-    <header className="">
+    <header className="bg-teal-600">
       <Container>
         <div className="justify-between hidden pb-2 space-x-4 border-b border-yellow-400 md:flex">
           <div>
             <Link href="/">
               <Image
-                src="/images/logo.webp"
-                width={2016}
-                height={966}
+                src="/images/logo-white.webp"
+                width={2480}
+                height={949}
                 alt="ASPIRE Logo"
                 className="object-cover w-36"
               />
@@ -117,7 +117,7 @@ const Navbar =  ({projects, docs}:Props) => {
               <Link
                 key={index}
                 href={social.href}
-                className="hover:text-aspire"
+                className="hover:text-aspire text-white"
               >
                 {social.icon}
               </Link>
@@ -125,13 +125,16 @@ const Navbar =  ({projects, docs}:Props) => {
           </div>
           <div className="flex items-center space-x-2">
             {contactDetails.map((contact, index) => (
-              <div key={index} className="flex items-center space-x-2">
+              <div
+                key={index}
+                className="flex items-center text-white space-x-2"
+              >
                 {contact.icon}
                 <div>
-                  <p className="text-sm font-semibold text-gray-600">
+                  <p className="text-sm font-semibold text-gray-50">
                     {contact.name}
                   </p>
-                  <p className="text-xs font-medium text-gray-500">
+                  <p className="text-xs font-medium text-gray-100">
                     {contact.detail}
                   </p>
                 </div>
@@ -142,17 +145,23 @@ const Navbar =  ({projects, docs}:Props) => {
         </div>
 
         {/* Desktop Navigation Starts*/}
-        <div className="justify-between hidden py-3 md:flex">
-          <NavigationMenu className="list-none ">
-            <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        <div className="justify-between hidden py-3 md:flex space-x-3">
+          <NavigationMenu className="list-none bg-teal-600 flex space-x-2 items-center">
+            <NavigationMenuItem className="bg-teal-600">
+              <Link href="/" legacyBehavior passHref className="bg-teal-600">
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Home
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Our Projects</NavigationMenuTrigger>
+              <NavigationMenuTrigger
+                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+              >
+                Our Projects
+              </NavigationMenuTrigger>
               <NavigationMenuContent className="">
                 <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
                   {projects.map((project) => (
@@ -178,7 +187,11 @@ const Navbar =  ({projects, docs}:Props) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+              <NavigationMenuTrigger
+                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+              >
+                About Us
+              </NavigationMenuTrigger>
               <NavigationMenuContent className="">
                 <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
                   {about.map((about, index) => (
@@ -204,10 +217,14 @@ const Navbar =  ({projects, docs}:Props) => {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Procurement</NavigationMenuTrigger>
+              <NavigationMenuTrigger
+                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+              >
+                Procurement
+              </NavigationMenuTrigger>
               <NavigationMenuContent className="">
                 <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  <li >
+                  <li>
                     <Link
                       href={`/procurement`}
                       legacyBehavior
@@ -219,12 +236,12 @@ const Navbar =  ({projects, docs}:Props) => {
                         className={navigationMenuTriggerStyle()}
                       >
                         <span className="font-medium cursor-pointer text-neutral-700">
-                         Open Tenders
+                          Open Tenders
                         </span>
                       </NavigationMenuLink>
                     </Link>
                   </li>
-                  <li >
+                  <li>
                     <Link
                       href={`/procurement/closed-tenders`}
                       legacyBehavior
@@ -236,7 +253,7 @@ const Navbar =  ({projects, docs}:Props) => {
                         className={navigationMenuTriggerStyle()}
                       >
                         <span className="font-medium cursor-pointer text-neutral-700">
-                         Closed Tenders
+                          Closed Tenders
                         </span>
                       </NavigationMenuLink>
                     </Link>
@@ -246,14 +263,18 @@ const Navbar =  ({projects, docs}:Props) => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/publications" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Publications
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/documents" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Documents
                 </NavigationMenuLink>
               </Link>
@@ -261,28 +282,36 @@ const Navbar =  ({projects, docs}:Props) => {
 
             <NavigationMenuItem>
               <Link href="/vacancies" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Vacancies
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/news" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   News
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/directors" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Board Of Directors
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/investments" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                >
                   Investments
                 </NavigationMenuLink>
               </Link>

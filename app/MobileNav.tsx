@@ -13,23 +13,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { type } from 'os';
 import { Project } from '@/schema';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 
 const about = [
@@ -65,10 +51,12 @@ const MobileNav = ({projects}:Props) => {
     <div className="flex items-center justify-between w-full lg:hidden">
       <div className="flex items-center">
         <Link href="/">
-          <img
-            src="/images/logo.webp"
-            alt="logo"
+          <Image
+            src="/images/logo-white.webp"
+            width={2480}
+            height={949}
             className="object-cover w-24"
+            alt="Logo"
           />
         </Link>
       </div>
@@ -129,19 +117,15 @@ const MobileNav = ({projects}:Props) => {
             >
               Projects
             </Link>
-            <Link
-              href="/board"
-              className="text-sm font-medium text-slate-700"
-            >
+            <Link href="/board" className="text-sm font-medium text-slate-700">
               Board Of Directors
             </Link>
             <Link
               href="/investments"
               className="text-sm font-medium text-slate-700"
             >
-             Investments
+              Investments
             </Link>
-
           </div>
         </SheetContent>
       </Sheet>
