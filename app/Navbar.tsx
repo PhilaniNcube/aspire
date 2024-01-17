@@ -98,7 +98,7 @@ const Navbar =  ({projects, docs}:Props) => {
 
 
   return (
-    <header className="bg-teal-600">
+    <header className="bg-aspire">
       <Container>
         <div className="justify-between hidden pb-2 space-x-4 border-b border-yellow-400 md:flex">
           <div>
@@ -117,7 +117,7 @@ const Navbar =  ({projects, docs}:Props) => {
               <Link
                 key={index}
                 href={social.href}
-                className="hover:text-aspire text-white"
+                className="hover:text-aspire text-slate-800"
               >
                 {social.icon}
               </Link>
@@ -127,14 +127,14 @@ const Navbar =  ({projects, docs}:Props) => {
             {contactDetails.map((contact, index) => (
               <div
                 key={index}
-                className="flex items-center text-white space-x-2"
+                className="flex items-center text-slate-800 space-x-2"
               >
                 {contact.icon}
                 <div>
-                  <p className="text-sm font-semibold text-gray-50">
+                  <p className="text-sm font-semibold text-slate-700">
                     {contact.name}
                   </p>
-                  <p className="text-xs font-medium text-gray-100">
+                  <p className="text-xs font-medium text-slate-700">
                     {contact.detail}
                   </p>
                 </div>
@@ -146,11 +146,16 @@ const Navbar =  ({projects, docs}:Props) => {
 
         {/* Desktop Navigation Starts*/}
         <div className="justify-between hidden py-3 md:flex space-x-3">
-          <NavigationMenu className="list-none bg-teal-600 flex space-x-2 items-center">
-            <NavigationMenuItem className="bg-teal-600">
-              <Link href="/" legacyBehavior passHref className="bg-teal-600">
+          <NavigationMenu className="list-none bg-aspire flex space-x-2 items-center">
+            <NavigationMenuItem className="bg-aspire">
+              <Link
+                href="/"
+                legacyBehavior
+                passHref
+                className="bg-aspire"
+              >
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700 bg-aspire", navigationMenuTriggerStyle())}
                 >
                   Home
                 </NavigationMenuLink>
@@ -158,7 +163,7 @@ const Navbar =  ({projects, docs}:Props) => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                className={cn("text-slate-700", navigationMenuTriggerStyle())}
               >
                 Our Projects
               </NavigationMenuTrigger>
@@ -188,7 +193,7 @@ const Navbar =  ({projects, docs}:Props) => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                className={cn("text-slate-700", navigationMenuTriggerStyle())}
               >
                 About Us
               </NavigationMenuTrigger>
@@ -218,7 +223,7 @@ const Navbar =  ({projects, docs}:Props) => {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                className={cn("text-slate-700", navigationMenuTriggerStyle())}
               >
                 Procurement
               </NavigationMenuTrigger>
@@ -264,7 +269,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/publications" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   Publications
                 </NavigationMenuLink>
@@ -273,7 +278,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/documents" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   Documents
                 </NavigationMenuLink>
@@ -283,7 +288,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/vacancies" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   Vacancies
                 </NavigationMenuLink>
@@ -292,7 +297,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/news" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   News
                 </NavigationMenuLink>
@@ -301,7 +306,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/directors" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   Board Of Directors
                 </NavigationMenuLink>
@@ -310,7 +315,7 @@ const Navbar =  ({projects, docs}:Props) => {
             <NavigationMenuItem>
               <Link href="/investments" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn("text-teal-600", navigationMenuTriggerStyle())}
+                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
                 >
                   Investments
                 </NavigationMenuLink>
