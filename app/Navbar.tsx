@@ -100,7 +100,7 @@ const Navbar =  ({projects, docs}:Props) => {
   return (
     <header className="bg-aspire">
       <Container>
-        <div className="justify-between hidden pb-2 space-x-4 border-b border-yellow-400 md:flex">
+        <div className="justify-between hidden pb-2 space-x-4 border-b border-black md:flex">
           <div>
             <Link href="/">
               <Image
@@ -138,7 +138,7 @@ const Navbar =  ({projects, docs}:Props) => {
                     {contact.detail}
                   </p>
                 </div>
-                <Separator orientation="vertical" />
+                <Separator orientation="vertical" className="text-black bg-black fill-black h-5"  />
               </div>
             ))}
           </div>
