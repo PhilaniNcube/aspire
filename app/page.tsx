@@ -33,14 +33,14 @@ export const metadata: Metadata = {
 export default async function Home() {
 
   const projectsData = getProjects()
-  const articlesData = getMainArticles()
+  // const articlesData = getMainArticles()
 
-  const [projects, articles] = await Promise.all([projectsData, articlesData]);
+  const [projects] = await Promise.all([projectsData]);
 
   return (
     <main className="">
-      {/* <Hero /> */}
-      <Carousel articles={articles} />
+      <Hero />
+      {/* <Carousel articles={articles} /> */}
       <Focus />
       <AspireContent />
       <Mission />
