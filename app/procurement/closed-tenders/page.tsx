@@ -1,7 +1,7 @@
 import Container from "@/components/ui/Container";
 import { getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Closed Tenders | Aspire",
