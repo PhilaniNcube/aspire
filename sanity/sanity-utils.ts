@@ -1,5 +1,5 @@
 
-import { Doc, News, Project, Tender, Vacancy } from '@/schema'
+import type { Doc, News, Project, Tender, Vacancy } from '@/schema'
 import {createClient, groq} from 'next-sanity'
 
 const client = createClient({

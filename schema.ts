@@ -271,50 +271,52 @@ export interface News extends SanityDocument {
  *
  */
 export interface Vacancy extends SanityDocument {
-  _type: "vacancy";
+		_type: "vacancy";
 
-  /**
-   * Title — `string`
-   *
-   *
-   */
-  title?: string;
+		/**
+		 * Title — `string`
+		 *
+		 *
+		 */
+		title?: string;
 
-  /**
-   * Slug — `slug`
-   *
-   *
-   */
-  slug?: { _type: "slug"; current: string };
+		/**
+		 * Slug — `slug`
+		 *
+		 *
+		 */
+		slug?: { _type: "slug"; current: string };
 
-  /**
-   * Description — `string`
-   *
-   *
-   */
-  description?: string;
+		/**
+		 * Description — `string`
+		 *
+		 *
+		 */
+		description?: string;
 
-  /**
-   * Location — `string`
-   *
-   *
-   */
-  location?: string;
+		/**
+		 * Location — `string`
+		 *
+		 *
+		 */
+		location?: string;
 
-  /**
-   * Closing Date — `date`
-   *
-   *
-   */
-  closingDate?: string;
+		/**
+		 * Closing Date — `date`
+		 *
+		 *
+		 */
+		closingDate?: string;
 
-  /**
-   * Vacancy Document — `file`
-   *
-   *
-   */
-  vacancyDocument?: string;
-}
+		/**
+		 * Vacancy Document — `file`
+		 *
+		 *
+		 */
+		vacancyDocument?: string;
+
+		images?: Array<string>;
+	}
 
 /**
  * Authors
