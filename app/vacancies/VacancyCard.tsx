@@ -21,7 +21,6 @@ type Props = {
 
 const VacancyCard = ({vacancy}:Props) => {
 
-  console.log(vacancy)
 
   return (
 			<Card className="w-full">
