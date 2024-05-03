@@ -159,8 +159,8 @@ export async function getTender(slug:string):Promise<Tender>  {
 
 export async function getVacancies():Promise<Vacancy[]>  {
 
-  return  client.fetch(
-    groq`
+  return client.fetch(
+			groq`
     *[ _type == "vacancy" ] {
       _id,
       title,
@@ -170,8 +170,10 @@ export async function getVacancies():Promise<Vacancy[]>  {
       closingDate,
       location,
       "vacancyDocument":vacancyDocument.asset->url,
+       "images": images[].asset->url,
     }
-    `)
+    `,
+		);
 
 }
 
@@ -179,7 +181,7 @@ export async function getVacancies():Promise<Vacancy[]>  {
 export async function getVacancy(slug:string):Promise<Vacancy>  {
 
   return client.fetch(
-    groq`
+			groq`
     *[ _type == "vacancy" && slug.current == $slug ][0] {
     _id,
       title,
@@ -189,9 +191,11 @@ export async function getVacancy(slug:string):Promise<Vacancy>  {
       closingDate,
       location,
       "vacancyDocument":vacancyDocument.asset->url,
+       "images": images[].asset->url,
     }
     `,
-    {slug})
+			{ slug },
+		);
 
 }
 

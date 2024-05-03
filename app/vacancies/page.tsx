@@ -10,9 +10,9 @@ const page = async () => {
 
   return <Container>
     <TypographyH1>Vacancies</TypographyH1>
-    <div className="grid grid-cols-1 mt-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 mt-4 lg:grid-cols-2 gap-8">
       {vacancies.map((vacancy, index) => (
-        <VacancyCard key={index} vacancy={vacancy} />
+        <VacancyCard key={vacancy._id} vacancy={vacancy} />
       ))}
     </div>
   </Container>;
