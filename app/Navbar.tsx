@@ -3,7 +3,7 @@
 import Container from "@/components/ui/Container";
 import { Separator } from "@/components/ui/separator";
 import { getProjectsIDs } from "@/sanity/sanity-utils";
-import { Doc, Project } from "@/schema";
+import type { Doc, Project } from "@/schema";
 import { AlertTriangleIcon, Building, FacebookIcon, InstagramIcon, LinkedinIcon, MailIcon, PhoneIcon, Twitter, TwitterIcon, YoutubeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -98,245 +98,281 @@ const Navbar =  ({projects, docs}:Props) => {
 
 
   return (
-    <header className="bg-aspire">
-      <Container>
-        <div className="justify-between hidden pb-2 space-x-4 border-b border-black md:flex">
-          <div>
-            <Link href="/">
-              <Image
-                src="/images/logo-white.webp"
-                width={2480}
-                height={949}
-                alt="ASPIRE Logo"
-                className="object-cover w-36"
-              />
-            </Link>
-          </div>{" "}
-          <div className="flex items-center space-x-2">
-            {socials.map((social, index) => (
-              <Link
-                key={index}
-                href={social.href}
-                className="hover:text-aspire text-slate-800"
-              >
-                {social.icon}
-              </Link>
-            ))}
-          </div>
-          <div className="flex items-center space-x-2">
-            {contactDetails.map((contact, index) => (
-              <div
-                key={index}
-                className="flex items-center text-slate-800 space-x-2"
-              >
-                {contact.icon}
-                <div>
-                  <p className="text-sm font-semibold text-slate-700">
-                    {contact.name}
-                  </p>
-                  <p className="text-xs font-medium text-slate-700">
-                    {contact.detail}
-                  </p>
-                </div>
-                <Separator orientation="vertical" className="text-black bg-black fill-black h-5"  />
-              </div>
-            ))}
-          </div>
-        </div>
+			<header className="bg-aspire">
+				<Container>
+					<div className="justify-between hidden pb-2 space-x-4 border-b border-black md:flex">
+						<div>
+							<Link href="/">
+								<Image
+									src="/images/logo-white.webp"
+									width={2480}
+									height={949}
+									alt="ASPIRE Logo"
+									className="object-cover w-36"
+								/>
+							</Link>
+						</div>{" "}
+						<div className="flex items-center space-x-2">
+							{socials.map((social, index) => (
+								<Link
+									key={social.href}
+									href={social.href}
+									className="hover:text-aspire text-slate-800"
+								>
+									{social.icon}
+								</Link>
+							))}
+						</div>
+						<div className="flex items-center space-x-2">
+							{contactDetails.map((contact, index) => (
+								<div
+									key={contact.name}
+									className="flex items-center space-x-2 text-slate-800"
+								>
+									{contact.icon}
+									<div>
+										<p className="text-sm font-semibold text-slate-700">
+											{contact.name}
+										</p>
+										<p className="text-xs font-medium text-slate-700">
+											{contact.detail}
+										</p>
+									</div>
+									<Separator
+										orientation="vertical"
+										className="h-5 text-black bg-black fill-black"
+									/>
+								</div>
+							))}
+						</div>
+					</div>
 
-        {/* Desktop Navigation Starts*/}
-        <div className="justify-between hidden py-3 md:flex space-x-3">
-          <NavigationMenu className="list-none bg-aspire flex space-x-2 items-center">
-            <NavigationMenuItem className="bg-aspire">
-              <Link
-                href="/"
-                legacyBehavior
-                passHref
-                className="bg-aspire"
-              >
-                <NavigationMenuLink
-                  className={cn("text-slate-700 bg-aspire", navigationMenuTriggerStyle())}
-                >
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className={cn("text-slate-700", navigationMenuTriggerStyle())}
-              >
-                Our Projects
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="">
-                <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  {projects.map((project) => (
-                    <li key={project._id}>
-                      <Link
-                        href={`/projects/${project.slug?.current}`}
-                        legacyBehavior
-                        passHref
-                        className="cursor-pointer"
-                      >
-                        <NavigationMenuLink
-                          asChild
-                          className={navigationMenuTriggerStyle()}
-                        >
-                          <span className="font-medium cursor-pointer text-neutral-700">
-                            {project.name}
-                          </span>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className={cn("text-slate-700", navigationMenuTriggerStyle())}
-              >
-                About Us
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="">
-                <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  {about.map((about, index) => (
-                    <li key={index}>
-                      <Link
-                        href={`/about/${about.href}`}
-                        legacyBehavior
-                        passHref
-                        className="cursor-pointer"
-                      >
-                        <NavigationMenuLink
-                          asChild
-                          className={navigationMenuTriggerStyle()}
-                        >
-                          <span className="font-medium cursor-pointer text-neutral-700">
-                            {about.title}
-                          </span>
-                        </NavigationMenuLink>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className={cn("text-slate-700", navigationMenuTriggerStyle())}
-              >
-                Procurement
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="">
-                <ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  <li>
-                    <Link
-                      href={`/procurement`}
-                      legacyBehavior
-                      passHref
-                      className="cursor-pointer"
-                    >
-                      <NavigationMenuLink
-                        asChild
-                        className={navigationMenuTriggerStyle()}
-                      >
-                        <span className="font-medium cursor-pointer text-neutral-700">
-                          Open Tenders
-                        </span>
-                      </NavigationMenuLink>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/procurement/closed-tenders`}
-                      legacyBehavior
-                      passHref
-                      className="cursor-pointer"
-                    >
-                      <NavigationMenuLink
-                        asChild
-                        className={navigationMenuTriggerStyle()}
-                      >
-                        <span className="font-medium cursor-pointer text-neutral-700">
-                          Closed Tenders
-                        </span>
-                      </NavigationMenuLink>
-                    </Link>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/publications" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  Publications
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/documents" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  Documents
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+					{/* Desktop Navigation Starts*/}
+					<div className="justify-between hidden py-3 space-x-3 md:flex">
+						<NavigationMenu className="flex items-center space-x-2 list-none bg-aspire">
+							<NavigationMenuItem className="bg-aspire">
+								<Link href="/" legacyBehavior passHref className="bg-aspire">
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700 bg-aspire",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Home
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger
+									className={cn("text-slate-700", navigationMenuTriggerStyle())}
+								>
+									Our Projects
+								</NavigationMenuTrigger>
+								<NavigationMenuContent className="">
+									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
+										{projects.map((project) => (
+											<li key={project._id}>
+												<Link
+													href={`/projects/${project.slug?.current}`}
+													legacyBehavior
+													passHref
+													className="cursor-pointer"
+												>
+													<NavigationMenuLink
+														asChild
+														className={navigationMenuTriggerStyle()}
+													>
+														<span className="font-medium cursor-pointer text-neutral-700">
+															{project.name}
+														</span>
+													</NavigationMenuLink>
+												</Link>
+											</li>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger
+									className={cn("text-slate-700", navigationMenuTriggerStyle())}
+								>
+									About Us
+								</NavigationMenuTrigger>
+								<NavigationMenuContent className="">
+									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
+										{about.map((about, index) => (
+											<li key={index}>
+												<Link
+													href={`/about/${about.href}`}
+													legacyBehavior
+													passHref
+													className="cursor-pointer"
+												>
+													<NavigationMenuLink
+														asChild
+														className={navigationMenuTriggerStyle()}
+													>
+														<span className="font-medium cursor-pointer text-neutral-700">
+															{about.title}
+														</span>
+													</NavigationMenuLink>
+												</Link>
+											</li>
+										))}
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuTrigger
+									className={cn("text-slate-700", navigationMenuTriggerStyle())}
+								>
+									Procurement
+								</NavigationMenuTrigger>
+								<NavigationMenuContent className="">
+									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
+										<li>
+											<Link
+												href="/procurement"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
+												>
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Open Tenders
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
+										<li>
+											<Link
+												href="/procurement/closed-tenders"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
+												>
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Closed Tenders
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
+										<li>
+											<Link
+												href="/procurement/awarded"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
+												>
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Awarded Tenders
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
+									</ul>
+								</NavigationMenuContent>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/publications" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Publications
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/documents" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Documents
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <Link href="/vacancies" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  Vacancies
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/news" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  News
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/directors" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  Board Of Directors
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/investments" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn("text-slate-700", navigationMenuTriggerStyle())}
-                >
-                  Investments
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            {/* <NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/vacancies" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Vacancies
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/news" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										News
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/directors" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Board Of Directors
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<Link href="/investments" legacyBehavior passHref>
+									<NavigationMenuLink
+										className={cn(
+											"text-slate-700",
+											navigationMenuTriggerStyle(),
+										)}
+									>
+										Investments
+									</NavigationMenuLink>
+								</Link>
+							</NavigationMenuItem>
+							{/* <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact Us
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem> */}
-          </NavigationMenu>
-        </div>
-        {/* Desktop Navigation Ends*/}
+						</NavigationMenu>
+					</div>
+					{/* Desktop Navigation Ends*/}
 
-        {/* Mobile Navigation Starts*/}
-        <MobileNav projects={projects} />
-        {/* Mobile Navigation Ends*/}
-      </Container>
-    </header>
-  );
+					{/* Mobile Navigation Starts*/}
+					<MobileNav projects={projects} />
+					{/* Mobile Navigation Ends*/}
+				</Container>
+			</header>
+		);
 };
 export default Navbar;
