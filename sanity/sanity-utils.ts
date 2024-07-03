@@ -212,7 +212,7 @@ export async function getNews():Promise<News[]>  {
       "author":author->name,
       content,
        "image":image.asset->url,
-    }
+    } | order(_createdAt desc)
     `)
 
 }
