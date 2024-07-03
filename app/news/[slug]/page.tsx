@@ -33,7 +33,7 @@ const page = async ({ params: { slug } }: Props) => {
             <Separator className="my-4" />
             <PortableText value={article.content!} />
           </div>
-        {article.image && <Image src={article.image} width={1920} height={1280} alt={article.name!} className="w-full aspect-video object-cover rounded-lg" />}
+        {article.image && <Image src={article.image} width={1920} height={1280} alt={article.name!} className="object-cover w-full rounded-lg" />}
         </div>
       </Container>
     </div>
