@@ -91,7 +91,7 @@ const MobileNav = () => {
               href="/documents"
               className="text-sm font-medium text-slate-700"
             >
-              Documents
+              Finance
             </Link>
             <Link
               href="/procurement"

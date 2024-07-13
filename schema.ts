@@ -101,28 +101,28 @@ export interface Doc extends SanityDocument {
    *
    *
    */
-  title?: string;
+  title: string;
 
   /**
    * Slug — `slug`
    *
    *
    */
-  slug?: { _type: "slug"; current: string };
+  slug: { _type: "slug"; current: string };
 
   /**
    * Period — `string`
    *
    *
    */
-  period?: string;
+  period: string;
 
   /**
    * Category — `string`
    *
    *
    */
-  category?:
+  category:
     | "annual_reports"
     | "app"
     | "budgets"
@@ -136,7 +136,7 @@ export interface Doc extends SanityDocument {
    *
    *
    */
-  content?: string;
+  content: string;
 }
 
 /**

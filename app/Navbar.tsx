@@ -336,7 +336,7 @@ const Navbar =  () => {
 											navigationMenuTriggerStyle(),
 										)}
 									>
-										Documents
+										Finance
 									</NavigationMenuLink>
 								</Link>
 							</NavigationMenuItem>

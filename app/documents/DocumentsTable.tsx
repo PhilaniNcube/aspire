@@ -1,4 +1,4 @@
-import { Doc } from "@/schema";
+import type { Doc } from "@/schema";
 import {
   Table,
   TableBody,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { DownloadCloudIcon, PaperclipIcon } from "lucide-react";
+import { format } from "date-fns";
 
 type Props = {
   documents: Doc[]
@@ -31,13 +32,13 @@ const DocumentsTable = ({documents}:Props) => {
       </TableHeader>
       <TableBody>
         {documents.map((doc, index) => (
-          <TableRow key={index}>
+          <TableRow key={doc._id}>
             <TableCell>{doc.title}</TableCell>
             <TableCell>{doc.category}</TableCell>
-            <TableCell>{doc._createdAt}</TableCell>
+            <TableCell>{format(new Date(doc._createdAt), 'PPP')}</TableCell>
             <TableCell>
               {" "}
-              <Link href={doc.content!} className="hover:text-blue-600">
+              <Link href={doc.content} className="hover:text-blue-600">
                 <DownloadCloudIcon size={24} />
               </Link>
             </TableCell>

@@ -35,6 +35,7 @@ const doc = {
             { title: "Mid Year Reports", value: "midyear_reports" },
             { title: "Policies and Charters", value: "policies_and_charters" },
             { title: "Strategic Documents", value: "strategic_documents" },
+            { title: "Monthly Reports", value: "monthly_reports" },
           ]
         }
       },

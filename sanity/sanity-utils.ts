@@ -132,6 +132,96 @@ export async function getDocs():Promise<Doc[]>  {
 }
 
 
+export async function getBudgetDocs():Promise<Doc[]>  {
+
+  return client.fetch(
+			groq`
+    *[ _type == "doc" && category match "budgets*" || category match "policies*" || category match "strategic*" ] {
+      _id,
+      title,
+      _createdAt,
+      slug,
+      category,
+      "content": content.asset->url,
+    }
+    `,
+		);
+
+}
+
+
+export async function getMidYearDocs():Promise<Doc[]>  {
+
+  return client.fetch(
+			groq`
+    *[ _type == "doc" && category match "midyear*"  ] {
+      _id,
+      title,
+      _createdAt,
+      slug,
+      category,
+      "content": content.asset->url,
+    }
+    `,
+		);
+
+}
+
+
+export async function getQuarterlyDocs():Promise<Doc[]>  {
+
+  return client.fetch(
+			groq`
+    *[ _type == "doc" && category match "corporate*"  ] {
+      _id,
+      title,
+      _createdAt,
+      slug,
+      category,
+      "content": content.asset->url,
+    }
+    `,
+		);
+
+}
+
+
+export async function getMonthlyDocs():Promise<Doc[]>  {
+
+  return client.fetch(
+			groq`
+    *[ _type == "doc" && category match "monthly*"  ] {
+      _id,
+      title,
+      _createdAt,
+      slug,
+      category,
+      "content": content.asset->url,
+    }
+    `,
+		);
+
+}
+
+
+export async function getAnnualDocs():Promise<Doc[]>  {
+
+  return client.fetch(
+			groq`
+    *[ _type == "doc" && category match "annual*" || category match "app*" ] {
+      _id,
+      title,
+      _createdAt,
+      slug,
+      category,
+      "content": content.asset->url,
+    }
+    `,
+		);
+
+}
+
+
 export async function getDoc(slug:string):Promise<Doc>  {
 
   return client.fetch(
