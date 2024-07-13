@@ -296,7 +296,7 @@ const Navbar =  () => {
 												</NavigationMenuLink>
 											</Link>
 										</li>
-										{/* <li>
+										<li>
 											<Link
 												href="/procurement/scm"
 												legacyBehavior
@@ -312,7 +312,7 @@ const Navbar =  () => {
 													</span>
 												</NavigationMenuLink>
 											</Link>
-										</li> */}
+										</li>
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
