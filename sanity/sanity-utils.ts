@@ -18,6 +18,61 @@ export async function getProjects():Promise<Project[]>  {
       slug,
       location,
       current,
+      status,
+      content,
+      "images": images[].asset->url,
+    }
+    `)
+
+}
+
+export async function getCurrentProjects():Promise<Project[]>  {
+
+  return  client.fetch(
+    groq`
+    *[ _type == "project" && status match "current" ] {
+      _id,
+      name,
+      slug,
+      location,
+      current,
+      status,
+      content,
+      "images": images[].asset->url,
+    }
+    `)
+
+}
+
+export async function getCompletedProjects():Promise<Project[]>  {
+
+  return  client.fetch(
+    groq`
+    *[ _type == "project" && status match "completed" ] {
+      _id,
+      name,
+      slug,
+      location,
+      current,
+      status,
+      content,
+      "images": images[].asset->url,
+    }
+    `)
+
+}
+
+export async function getOngoingProjects():Promise<Project[]>  {
+
+  return  client.fetch(
+    groq`
+    *[ _type == "project" && status match "ongoing" ] {
+      _id,
+      name,
+      slug,
+      location,
+      current,
+      status,
       content,
       "images": images[].asset->url,
     }
@@ -32,7 +87,8 @@ export async function getProjectsIDs():Promise<Project[]>  {
     *[ _type == "project" ] {
       _id,
       name,
-      slug
+      slug,
+
     }
     `)
 
@@ -49,6 +105,7 @@ export async function getProject(slug:string):Promise<Project>  {
       slug,
       location,
       current,
+      status,
       content,
       "images": images[].asset->url,
     }
@@ -113,6 +170,174 @@ export async function getTenders():Promise<Tender[]>  {
 }
 
 export async function getClosedTenders():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && closingDate <  "${date}"] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+export async function getClosedBids():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "BID*"  && closingDate <  "${date}"] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+export async function getAwardedBids():Promise<Tender[]>  {
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "BID*"   && awarded == true] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+
+export async function getOpenBids():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "BID*"  && closingDate >  "${date}" && awarded == false] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+export async function getOpenRFQs():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "RFQ*"  && closingDate >  "${date}" && awarded == false] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+export async function getClosedRFQs():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "RFQ*"  && closingDate <  "${date}" && awarded == false] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+export async function getAwardedRFQs():Promise<Tender[]>  {
+
+  const date = new Date().toISOString()
+
+  return client.fetch(
+			groq`
+    *[ _type == "tender" && tenderNumber match "RFQ*" && awarded == true] {
+      _id,
+      name,
+      _createdAt,
+      slug,
+      description,
+      closingDate,
+      tenderNumber,
+      awarded,
+      price,
+      "tenderDocument":tenderDocument.asset->url,
+      "closeOutDocument":closeOutDocument.asset->url,
+    } | order(closingDate desc)
+    `,
+		);
+
+}
+
+
+
+export async function getAwardedTenders():Promise<Tender[]>  {
 
   return  client.fetch(
     groq`

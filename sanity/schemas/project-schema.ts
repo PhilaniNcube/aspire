@@ -46,6 +46,15 @@ const project = {
         }
       },
       {
+        name: 'status',
+        title: 'Status',
+        type: 'string',
+        default: 'current',
+        options: {
+          list: ['current', 'completed', 'ongoing']
+        }
+      },
+      {
         name: 'content',
         title: 'Content',
         type: 'array',

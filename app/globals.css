@@ -78,6 +78,44 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
   }
+}
+
+body > div > div > div > div > ol > li {
+  @apply bg-green-500 rounded-md my-2 px-3 py-1 text-xs text-white w-[250px] list-decimal;
+}
+
+/* change the background colour of the list item based on which number it is */
+body > div > div > div > div > ol > li:nth-child(1) {
+  @apply bg-red-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(2) {
+  @apply bg-blue-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(3) {
+  @apply bg-yellow-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(4) {
+  @apply bg-purple-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(5) {
+  @apply bg-indigo-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(6) {
+  @apply bg-pink-500;
+}
+
+body > div > div > div > div > ol > li:nth-child(7) {
+  @apply bg-gray-500;
+}
+
+body > div > div > div > div > ol > li {
+  background-colour: green;
+  border-radius: 3px;
 }

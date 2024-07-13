@@ -169,26 +169,58 @@ const Navbar =  ({projects, docs}:Props) => {
 									Our Projects
 								</NavigationMenuTrigger>
 								<NavigationMenuContent className="">
-									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
-										{projects.map((project) => (
-											<li key={project._id}>
-												<Link
-													href={`/projects/${project.slug?.current}`}
-													legacyBehavior
-													passHref
-													className="cursor-pointer"
+									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-3">
+										<li >
+											<Link
+												href="/projects/current"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
 												>
-													<NavigationMenuLink
-														asChild
-														className={navigationMenuTriggerStyle()}
-													>
-														<span className="font-medium cursor-pointer text-neutral-700">
-															{project.name}
-														</span>
-													</NavigationMenuLink>
-												</Link>
-											</li>
-										))}
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Current Projects
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
+										<li >
+											<Link
+												href="/projects/finalized"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
+												>
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Finalized Projects
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
+										<li >
+											<Link
+												href="/projects/ongoing"
+												legacyBehavior
+												passHref
+												className="cursor-pointer"
+											>
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
+												>
+													<span className="font-medium cursor-pointer text-neutral-700">
+														Ongoing Projects
+													</span>
+												</NavigationMenuLink>
+											</Link>
+										</li>
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
@@ -201,7 +233,7 @@ const Navbar =  ({projects, docs}:Props) => {
 								<NavigationMenuContent className="">
 									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
 										{about.map((about, index) => (
-											<li key={index}>
+											<li key={about.title}>
 												<Link
 													href={`/about/${about.href}`}
 													legacyBehavior
@@ -229,10 +261,10 @@ const Navbar =  ({projects, docs}:Props) => {
 									Procurement
 								</NavigationMenuTrigger>
 								<NavigationMenuContent className="">
-									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
+									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-3">
 										<li>
 											<Link
-												href="/procurement"
+												href="/procurement/formal"
 												legacyBehavior
 												passHref
 												className="cursor-pointer"
@@ -242,14 +274,14 @@ const Navbar =  ({projects, docs}:Props) => {
 													className={navigationMenuTriggerStyle()}
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
-														Open Tenders
+														Formal Tenders
 													</span>
 												</NavigationMenuLink>
 											</Link>
 										</li>
 										<li>
 											<Link
-												href="/procurement/closed-tenders"
+												href="/procurement/informal"
 												legacyBehavior
 												passHref
 												className="cursor-pointer"
@@ -259,14 +291,14 @@ const Navbar =  ({projects, docs}:Props) => {
 													className={navigationMenuTriggerStyle()}
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
-														Closed Tenders
+														Informal Tenders
 													</span>
 												</NavigationMenuLink>
 											</Link>
 										</li>
 										<li>
 											<Link
-												href="/procurement/awarded"
+												href="/procurement/scm"
 												legacyBehavior
 												passHref
 												className="cursor-pointer"
@@ -276,7 +308,7 @@ const Navbar =  ({projects, docs}:Props) => {
 													className={navigationMenuTriggerStyle()}
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
-														Awarded Tenders
+														SCM Database
 													</span>
 												</NavigationMenuLink>
 											</Link>

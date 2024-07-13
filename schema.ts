@@ -78,6 +78,7 @@ export interface Project extends SanityDocument {
    *
    */
   current?: boolean;
+  status: "Current" | "Completed" | "Ongoing";
 
   /**
    * Content — `array`

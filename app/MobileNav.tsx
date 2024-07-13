@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Project } from '@/schema';
+import type { Project } from '@/schema';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 

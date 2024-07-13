@@ -1,5 +1,5 @@
 import Container from "@/components/ui/Container";
-import { getClosedTenders } from "@/sanity/sanity-utils";
+import { getClosedBids, getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
 import type { Metadata } from "next";
 
@@ -28,9 +28,11 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 const page = async () => {
-  const tendersData = getClosedTenders();
+  const tendersData = getClosedBids();
 
   const [tenders] = await Promise.all([tendersData]);
+
+  console.log(tenders);
 
   return (
     <Container>

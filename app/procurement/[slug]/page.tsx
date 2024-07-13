@@ -17,6 +17,7 @@ const page = async ({ params: { slug } }: Props) => {
 
   const tender = await getTender(slug);
 
+
   return (
     <Container>
       <TypographyH1>Tender Details</TypographyH1>
@@ -24,17 +25,17 @@ const page = async ({ params: { slug } }: Props) => {
         <h2 className="text-2xl font-medium">{tender.name}</h2>
         <p className="text-md">{tender.description}</p>
         <strong>Closing Date: {tender.closingDate}</strong>
-        <h2 className="text-lg mt-2 font-semibold">
-          Document Price: {fromatter(tender.price!)}
+        <h2 className="mt-2 text-lg font-semibold">
+          Document Price: {tender.price ? fromatter(tender.price) : "Free"}
         </h2>
 
-        {tender.awarded ? (
-          <Link href={tender.closeOutDocument!}>
+        {tender.awarded && tender.closeOutDocument ? (
+          <Link href={tender.closeOutDocument}>
             {" "}
             <Button className="mt-4">Close Out Document</Button>
           </Link>
         ) : (
-          <Link href={tender.tenderDocument!}>
+          <Link href={tender.tenderDocument ? tender.tenderDocument : ''}>
             {" "}
             <Button className="mt-4">Download Document</Button>
           </Link>
