@@ -7,6 +7,11 @@ import {
 } from "@/sanity/sanity-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TendersTable from "../TendersTable";
+import { Redis } from "@upstash/redis";
+import ViewsBadge from "@/components/views-badge";
+import { ReportView } from "../awarded/view";
+
+const redis = Redis.fromEnv();
 
 const InformalTendersPage = async () => {
   const openRFQsData = getOpenRFQs();
@@ -15,11 +20,18 @@ const InformalTendersPage = async () => {
 
   const [openRFQs, closedRFQs, awardedRFQs] = await Promise.all([openRFQsData, closedRFQsData, awardedRFQsData]);
 
-  console.log(openRFQs);
+    const views =
+					(await redis.get<number>(
+						["pageviews", "projects", "awarded"].join(":"),
+					)) ?? 0;
 
   return (
 			<Container>
-        <h1 className="mb-4 text-2xl font-bold text-gray-800">Informal Tenders</h1>
+				<ReportView slug="informal" />
+				<ViewsBadge views={views} />
+				<h1 className="mb-4 text-2xl font-bold text-gray-800">
+					Informal Tenders
+				</h1>
 				<Tabs defaultValue="adverts" className="w-full">
 					<TabsList>
 						<TabsTrigger value="adverts">Adverts</TabsTrigger>

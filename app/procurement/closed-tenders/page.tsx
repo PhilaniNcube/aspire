@@ -2,6 +2,11 @@ import Container from "@/components/ui/Container";
 import { getClosedBids, getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
 import type { Metadata } from "next";
+import { Redis } from "@upstash/redis";
+import ViewsBadge from "@/components/views-badge";
+import { ReportView } from "../awarded/view";
+
+const redis = Redis.fromEnv();
 
 export const metadata: Metadata = {
   title: "Closed Tenders | Aspire",
@@ -32,12 +37,17 @@ const page = async () => {
 
   const [tenders] = await Promise.all([tendersData]);
 
-  console.log(tenders);
+  const views =
+			(await redis.get<number>(
+				["pageviews", "projects", "awarded"].join(":"),
+			)) ?? 0;
 
   return (
-    <Container>
-      <TendersTable tenders={tenders} />
-    </Container>
-  );
+			<Container>
+				<ReportView slug="closed-tenders" />
+				<ViewsBadge views={views} />
+				<TendersTable tenders={tenders} />
+			</Container>
+		);
 };
 export default page;
