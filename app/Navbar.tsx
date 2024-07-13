@@ -94,7 +94,7 @@ type Props = {
 }
 
 
-const Navbar =  ({projects, docs}:Props) => {
+const Navbar =  () => {
 
 
   return (
@@ -296,7 +296,7 @@ const Navbar =  ({projects, docs}:Props) => {
 												</NavigationMenuLink>
 											</Link>
 										</li>
-										<li>
+										{/* <li>
 											<Link
 												href="/procurement/scm"
 												legacyBehavior
@@ -312,7 +312,7 @@ const Navbar =  ({projects, docs}:Props) => {
 													</span>
 												</NavigationMenuLink>
 											</Link>
-										</li>
+										</li> */}
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
@@ -401,7 +401,7 @@ const Navbar =  ({projects, docs}:Props) => {
 					{/* Desktop Navigation Ends*/}
 
 					{/* Mobile Navigation Starts*/}
-					<MobileNav projects={projects} />
+					<MobileNav  />
 					{/* Mobile Navigation Ends*/}
 				</Container>
 			</header>

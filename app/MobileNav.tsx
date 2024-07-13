@@ -41,7 +41,7 @@ type Props = {
   projects: Project[];
 }
 
-const MobileNav = ({projects}:Props) => {
+const MobileNav = () => {
 
   const router = useRouter()
 

@@ -24,7 +24,7 @@ const [projects, docs] = await Promise.all([projectsData, docsData]);
     <html lang="en">
       <body>
 
-        <Navbar projects={projects} docs={docs} />
+        <Navbar  />
         {children}
         <Footer />
       </body>
