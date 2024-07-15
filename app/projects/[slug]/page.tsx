@@ -1,7 +1,7 @@
 import { TypographyH1 } from "@/components/typography";
 import Container from "@/components/ui/Container";
 import { Separator } from "@/components/ui/separator";
-import { getProject } from "@/sanity/sanity-utils";
+import { getProject, getProjects } from "@/sanity/sanity-utils";
 import {PortableText} from '@portabletext/react'
 import { CloudSnowIcon, LocateIcon } from "lucide-react";
 import Image from "next/image";
@@ -11,6 +11,10 @@ type Props = {
     slug: string;
   }
 }
+
+
+
+
 
 const page = async ({params: {slug}}:Props) => {
 

@@ -4,6 +4,8 @@ import { getProjects } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
 
+
+
 const page = async () => {
 
   const projectsData = getProjects()
@@ -14,17 +16,17 @@ const page = async () => {
     <main>
       <Container>
         <TypographyH1>Projects</TypographyH1>
-        <section className="py-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <section className="grid w-full grid-cols-1 gap-6 py-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {projects.map((project, index) => (
             <Link
               href={`/projects/${project.slug?.current}`}
-              key={index}
-              className="bg-white rounded-md overflow-hidden cursor-pointer"
+              key={project._id}
+              className="overflow-hidden bg-white rounded-md cursor-pointer"
             >
               {project.images && project.images.length > 0 ? (
                 <Image
                   src={project?.images[0]}
-                  alt={project.name!}
+                  alt="project"
                   width={600}
                   height={400}
                   className="w-full aspect-video"
@@ -34,7 +36,7 @@ const page = async () => {
                   src="/images/public-works.jpg"
                   width={600}
                   height={400}
-                  alt={project.name!}
+                  alt="project"
                   className="w-full aspect-video"
                 />
               )}
