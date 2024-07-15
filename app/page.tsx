@@ -5,7 +5,7 @@ import AspireContent from './AspireContent'
 import Mission from './Mission'
 import {  getMainArticles, getProjects, getProjectsIDs } from '@/sanity/sanity-utils'
 import ProjectsSection from './ProjectsSection'
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Carousel from './Carousel'
 
 export const metadata: Metadata = {
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     title: "Latest News and Blog Articles | Aspire",
     description:
       "Stay up to date with the latest news coming out of Amathole District and the Amathole Development Agency - Aspire",
-    url: "https://aspire.co.za/news",
+    url: "https://aspire.org.za/news",
     type: "website",
-    images: ["https://aspire.co.za/images/public-works.jpg"],
+    images: ["https://aspire.org.za/images/public-works.jpg"],
   },
   twitter: {
     card: "summary_large_image",
