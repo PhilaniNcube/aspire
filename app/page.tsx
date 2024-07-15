@@ -9,13 +9,13 @@ import type { Metadata } from "next";
 import Carousel from './Carousel'
 
 export const metadata: Metadata = {
-  title: "Latest News and Blog Articles | Aspire",
+  title: "Aspire",
   description:
     "Stay up to date with the latest news coming out of Amathole District and the Amathole Development Agency - Aspire",
   keywords:
     "open tenders, bidding, procurement, aspire, tenders, business, opportunities, contracts, proposals, bids, request for quotes",
   openGraph: {
-    title: "Latest News and Blog Articles | Aspire",
+    title: "Aspire",
     description:
       "Stay up to date with the latest news coming out of Amathole District and the Amathole Development Agency - Aspire",
     url: "https://aspire.org.za/news",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Latest News and Blog Articles | Aspire",
+    title: "Aspire",
     description:
       "Stay up to date with the latest news coming out of Amathole District and the Amathole Development Agency - Aspire",
   },
