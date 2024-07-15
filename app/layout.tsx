@@ -1,10 +1,9 @@
-import { getDocs, getProjectsIDs } from '@/sanity/sanity-utils'
 import './globals.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
         import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from 'next';
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata:Metadata = {
   metadataBase: new URL('https://aspire.org.za'),
@@ -44,10 +43,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-const projectsData = getProjectsIDs();
-const docsData = getDocs();
 
-const [projects, docs] = await Promise.all([projectsData, docsData]);
 
   return (
 			<html lang="en">
@@ -57,6 +53,7 @@ const [projects, docs] = await Promise.all([projectsData, docsData]);
 					<Footer />
 					<Toaster />
 				</body>
+				<GoogleAnalytics gaId="G-QHQX2NY1JQ" />
 			</html>
 		);
 }
