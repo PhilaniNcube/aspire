@@ -383,7 +383,7 @@ export async function getClosedRFQs():Promise<Tender[]>  {
 
   return client.fetch(
 			groq`
-    *[ _type == "tender" && tenderNumber match "RFQ*"  && closingDate <  "${date}" && awarded == false] {
+    *[ _type == "tender" && tenderNumber match "RFQ*"  && closingDate <  "${date}" ] {
       _id,
       name,
       _createdAt,
