@@ -14,6 +14,7 @@ import Link from "next/link";
 import { DownloadCloudIcon, PaperclipIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import formatter from "@/utils/formatCurrency";
+import type { MouseEvent } from "react";
 
 type Props = {
   tenders: Tender[];
@@ -33,7 +34,7 @@ const TendersTable = ({ tenders }: Props) => {
 						<TableHead>Tender Docs Price</TableHead>
 						<TableHead>Closing Date</TableHead>
 						<TableHead>Awarded</TableHead>
-						<TableHead>Download Document</TableHead>
+						<TableHead>Download Documents</TableHead>
 					</TableRow>
 				</TableHeader>
 				<TableBody>
@@ -52,23 +53,32 @@ const TendersTable = ({ tenders }: Props) => {
 							<TableCell>
 								{tender.awarded ? "Awarded" : "Not Awarded"}
 							</TableCell>
-							<TableCell>
-								{tender.awarded && tender.closeOutDocument ? (
-									<Link
-										href={tender.closeOutDocument}
-										className="hover:text-blue-600"
-									>
-										<DownloadCloudIcon size={24} />
-									</Link>
-								) : (
-									<Link
-										href={`${tender.tenderDocument}`}
-										className="hover:text-blue-600"
-									>
-										<DownloadCloudIcon size={24} />
-									</Link>
-								)}
-							</TableCell>
+						<TableCell className="flex gap-2">
+							{/* Show Tender Document if available */}
+							{tender.tenderDocument && (
+								<Link
+									href={tender.tenderDocument}
+									className="flex items-center gap-1 hover:text-blue-600"
+									onClick={e => e.stopPropagation()}
+									title="Download Tender Document"
+								>
+									<DownloadCloudIcon size={20} />
+									<span className="text-xs">Tender</span>
+								</Link>
+							)}
+							{/* Show Closing Register if available */}
+							{tender.closeOutDocument && (
+								<Link
+									href={tender.closeOutDocument}
+									className="flex items-center gap-1 hover:text-green-600"
+									onClick={e => e.stopPropagation()}
+									title="Download Closing Register"
+								>
+									<PaperclipIcon size={18} />
+									<span className="text-xs">Register</span>
+								</Link>
+							)}
+						</TableCell>
 						</TableRow>
 					))}
 				</TableBody>
