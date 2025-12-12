@@ -3,7 +3,6 @@ import { getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
 import type { Metadata } from "next";
 import { ReportView } from "./view";
-import { Redis } from "@upstash/redis";
 
 export const metadata: Metadata = {
 	title: "Closed Tenders | Aspire",
@@ -29,19 +28,14 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-const redis = Redis.fromEnv();
-
 const page = async () => {
 	const tendersData = getClosedTenders();
 
 	const [tenders] = await Promise.all([tendersData]);
 
-  const views =
-			(await redis.get<number>(
-				["pageviews", "projects", "awarded"].join(":"),
-			)) ?? 0;
+  const views = 0;
 
-      console.log(views);
+  console.log(views);
 
 
 	return (

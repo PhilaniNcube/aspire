@@ -3,6 +3,8 @@ import Container from "@/components/ui/Container";
 import { getVacancies } from "@/sanity/sanity-utils";
 import VacancyCard from "./VacancyCard";
 
+export const dynamic = 'force-dynamic';
+
 const page = async () => {
 
   const vacanciesData = getVacancies()

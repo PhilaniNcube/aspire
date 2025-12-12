@@ -3,10 +3,7 @@ import { getAwardedBids, getClosedBids, getOpenBids } from "@/sanity/sanity-util
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TendersTable from "../TendersTable";
 import { ReportView } from "../awarded/view";
-import { Redis } from "@upstash/redis";
 import ViewsBadge from "@/components/views-badge";
-
-const redis = Redis.fromEnv();
 
 const FormalTendersPage = async () => {
 
@@ -19,10 +16,7 @@ const FormalTendersPage = async () => {
 
   console.log(openBids);
 
-    const views =
-					(await redis.get<number>(
-						["pageviews", "projects", "awarded"].join(":"),
-					)) ?? 0;
+  const views = 0;
 
   return (
 			<Container>
