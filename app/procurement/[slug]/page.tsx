@@ -8,12 +8,17 @@ import Link from "next/link";
 export const revalidate = 5;
 
 type Props ={
-  params: {
+  params: Promise<{
     slug: string;
-  }
+  }>
 }
 
-const page = async ({ params: { slug } }: Props) => {
+const page = async (props: Props) => {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
 
   const tender = await getTender(slug);
 

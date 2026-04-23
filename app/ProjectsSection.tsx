@@ -42,15 +42,13 @@ const ProjectsSection = ({projects}:Props) => {
                     {project.name}
                   </h3>
 
-                  <Link href={`/projects/${project.slug?.current}`}>
-                    <Button
+                  <Button
                       type="button"
                       variant="outline"
                       className="hover:bg-yellow-200"
                     >
                       Read More
                     </Button>
-                  </Link>
                 </div>
               </Link>
             ))}

@@ -9,12 +9,18 @@ import Image from "next/image";
 export const revalidate = 60;
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-const page = async ({ params: { slug } }: Props) => {
+const page = async (props: Props) => {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const article = await getNewsArticle(slug);
 
   return (

@@ -2,7 +2,6 @@ import Container from "@/components/ui/Container";
 import { getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
 import type { Metadata } from "next";
-import { ReportView } from "./view";
 
 export const metadata: Metadata = {
 	title: "Closed Tenders | Aspire",
@@ -40,7 +39,6 @@ const page = async () => {
 
 	return (
 		<Container>
-      <ReportView slug="awarded" />
 			<TendersTable tenders={tenders} />
 		</Container>
 	);

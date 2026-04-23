@@ -3,7 +3,6 @@ import { getClosedBids, getClosedTenders } from "@/sanity/sanity-utils";
 import TendersTable from "../TendersTable";
 import type { Metadata } from "next";
 import ViewsBadge from "@/components/views-badge";
-import { ReportView } from "../awarded/view";
 
 export const metadata: Metadata = {
   title: "Closed Tenders | Aspire",
@@ -38,7 +37,6 @@ const page = async () => {
 
   return (
 			<Container>
-				<ReportView slug="closed-tenders" />
 				<ViewsBadge views={views} />
 				<TendersTable tenders={tenders} />
 			</Container>

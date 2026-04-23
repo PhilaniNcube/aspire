@@ -11,9 +11,8 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {  useTransition } from "react";
+import { useTransition, useActionState } from "react";
 import { csdSignUpAction } from "@/actions/suppliers";
-import { useFormState } from "react-dom";
 import { toast } from "sonner";
 
 
@@ -25,7 +24,7 @@ export default function CSDForm() {
 
   const [pending, startTransition] = useTransition()
 
-  const [state, formAction] = useFormState(csdSignUpAction,initialState)
+  const [state, formAction] = useActionState(csdSignUpAction,initialState)
 
 
 

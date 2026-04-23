@@ -1,8 +1,6 @@
-import { createClient } from "next-sanity";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import schemas from './sanity/schemas'
-import { groqdPlaygroundTool } from "groqd-playground";
+import schemas from './sanity/schemas';
 
 const config = defineConfig({
 	projectId: "0m4fu2cd",

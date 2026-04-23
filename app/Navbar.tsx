@@ -4,7 +4,8 @@ import Container from "@/components/ui/Container";
 import { Separator } from "@/components/ui/separator";
 import { getProjectsIDs } from "@/sanity/sanity-utils";
 import type { Doc, Project } from "@/schema";
-import { AlertTriangleIcon, Building, FacebookIcon, InstagramIcon, LinkedinIcon, MailIcon, PhoneIcon, Twitter, TwitterIcon, YoutubeIcon } from "lucide-react";
+import { AlertTriangleIcon, Building, MailIcon, PhoneIcon } from "lucide-react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -24,23 +25,23 @@ import MobileNav from "./MobileNav";
 
 const socials = [
   {
-    icon: <FacebookIcon />,
+    icon: <FaFacebook />,
     href: "https://www.facebook.com/aspiredevelopmentagency",
   },
   {
-    icon: <InstagramIcon />,
+    icon: <FaInstagram />,
     href: "https://www.instagram.com/aspiredevelopmentagency/",
   },
   {
-    icon: <TwitterIcon />,
+    icon: <FaXTwitter />,
     href: "https://twitter.com/AspireAmathole?s=03",
   },
   {
-    icon: <LinkedinIcon />,
+    icon: <FaLinkedin />,
     href: "https://www.linkedin.com/company/aspire-development-agency/",
   },
   {
-    icon: <YoutubeIcon />,
+    icon: <FaYoutube />,
     href: "https://www.youtube.com/channel/UCxrilPvzXKol3fD7fIogRjA",
   },
 ];

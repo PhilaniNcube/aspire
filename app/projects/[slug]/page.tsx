@@ -7,16 +7,21 @@ import { CloudSnowIcon, LocateIcon } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  }
+  }>
 }
 
 
 
 
 
-const page = async ({params: {slug}}:Props) => {
+const page = async (props:Props) => {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
 
   const project = await getProject(slug);
 

@@ -8,7 +8,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TendersTable from "../TendersTable";
 import ViewsBadge from "@/components/views-badge";
-import { ReportView } from "../awarded/view";
 
 const InformalTendersPage = async () => {
   const openRFQsData = getOpenRFQs();
@@ -21,7 +20,6 @@ const InformalTendersPage = async () => {
 
   return (
 			<Container>
-				<ReportView slug="informal" />
 				<ViewsBadge views={views} />
 				<h1 className="mb-4 text-2xl font-bold text-gray-800">
 					Informal Tenders

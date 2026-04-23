@@ -13,7 +13,7 @@ export async function csdSignUpAction(prev: unknown, formData:FormData) {
     return { message: 'Please fill out all fields' }
   }
 
-  const supabase = createClient()
+  const supabase = await createClient()
 
 
   const { data, error } = await supabase.from('service_providers').insert([{

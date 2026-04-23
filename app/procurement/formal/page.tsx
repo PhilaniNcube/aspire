@@ -2,7 +2,6 @@ import Container from "@/components/ui/Container";
 import { getAwardedBids, getClosedBids, getOpenBids } from "@/sanity/sanity-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TendersTable from "../TendersTable";
-import { ReportView } from "../awarded/view";
 import ViewsBadge from "@/components/views-badge";
 
 const FormalTendersPage = async () => {
@@ -20,7 +19,6 @@ const FormalTendersPage = async () => {
 
   return (
 			<Container>
-				<ReportView slug="formal" />
 				<ViewsBadge views={views} />
 				<h1 className="mb-4 text-2xl font-bold text-gray-800">
 					Formal Tenders
