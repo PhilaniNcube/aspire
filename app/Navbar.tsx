@@ -152,16 +152,17 @@ const Navbar =  () => {
 					<div className="justify-between hidden py-3 space-x-3 md:flex">
 						<NavigationMenu className="flex items-center space-x-2 list-none bg-aspire">
 							<NavigationMenuItem className="bg-aspire">
-								<Link href="/" legacyBehavior passHref className="bg-aspire">
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700 bg-aspire",
-											navigationMenuTriggerStyle(),
-										)}
-									>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700 bg-aspire",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/" className="bg-aspire">
 										Home
-									</NavigationMenuLink>
-								</Link>
+									</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuTrigger
@@ -172,55 +173,49 @@ const Navbar =  () => {
 								<NavigationMenuContent className="">
 									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-3">
 										<li >
-											<Link
-												href="/projects/current"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/projects/current"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														Current Projects
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 										<li >
-											<Link
-												href="/projects/finalized"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/projects/finalized"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														Finalized Projects
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 										<li >
-											<Link
-												href="/projects/ongoing"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/projects/ongoing"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														Ongoing Projects
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 									</ul>
 								</NavigationMenuContent>
@@ -235,21 +230,19 @@ const Navbar =  () => {
 									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-2">
 										{about.map((about, index) => (
 											<li key={about.title}>
-												<Link
-													href={`/about/${about.href}`}
-													legacyBehavior
-													passHref
-													className="cursor-pointer"
+												<NavigationMenuLink
+													asChild
+													className={navigationMenuTriggerStyle()}
 												>
-													<NavigationMenuLink
-														asChild
-														className={navigationMenuTriggerStyle()}
+													<Link
+														href={`/about/${about.href}`}
+														className="cursor-pointer"
 													>
 														<span className="font-medium cursor-pointer text-neutral-700">
 															{about.title}
 														</span>
-													</NavigationMenuLink>
-												</Link>
+													</Link>
+												</NavigationMenuLink>
 											</li>
 										))}
 									</ul>
@@ -264,138 +257,124 @@ const Navbar =  () => {
 								<NavigationMenuContent className="">
 									<ul className="grid w-fit gap-3 p-4 md:w-[500px] md:grid-cols-3">
 										<li>
-											<Link
-												href="/procurement/formal"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/procurement/formal"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														Formal Tenders
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 										<li>
-											<Link
-												href="/procurement/informal"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/procurement/informal"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														Informal Tenders
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 										<li>
-											<Link
-												href="/procurement/scm"
-												legacyBehavior
-												passHref
-												className="cursor-pointer"
+											<NavigationMenuLink
+												asChild
+												className={navigationMenuTriggerStyle()}
 											>
-												<NavigationMenuLink
-													asChild
-													className={navigationMenuTriggerStyle()}
+												<Link
+													href="/procurement/scm"
+													className="cursor-pointer"
 												>
 													<span className="font-medium cursor-pointer text-neutral-700">
 														SCM Database
 													</span>
-												</NavigationMenuLink>
-											</Link>
+												</Link>
+											</NavigationMenuLink>
 										</li>
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<Link href="/publications" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										Publications
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/publications">Publications</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<Link href="/documents" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										Finance
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/documents">Finance</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 
 							<NavigationMenuItem>
-								<Link href="/vacancies" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										Vacancies
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/vacancies">Vacancies</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<Link href="/news" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										News
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/news">News</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<Link href="/directors" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										Board Of Directors
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/directors">Board Of Directors</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
-								<Link href="/investments" legacyBehavior passHref>
-									<NavigationMenuLink
-										className={cn(
-											"text-slate-700",
-											navigationMenuTriggerStyle(),
-										)}
-									>
-										Investments
-									</NavigationMenuLink>
-								</Link>
+								<NavigationMenuLink
+									asChild
+									className={cn(
+										"text-slate-700",
+										navigationMenuTriggerStyle(),
+									)}
+								>
+									<Link href="/investments">Investments</Link>
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 							{/* <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact Us
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/contact">Contact Us</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem> */}
 						</NavigationMenu>
 					</div>
