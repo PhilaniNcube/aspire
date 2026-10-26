@@ -519,7 +519,7 @@ export async function getPublications():Promise<Publication[]>  {
 
   return client.fetch(
     groq`
-    *[ _type == "publication" ] | order(publishedAt desc) {
+    *[ _type == "publication" ] | order(_createdAt desc) {
       _id,
       title,
       _createdAt,
