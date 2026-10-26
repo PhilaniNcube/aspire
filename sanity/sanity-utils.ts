@@ -1,5 +1,5 @@
 
-import type { Doc, InvestmentsPage, News, Project, Publication, Tender, Vacancy } from '@/schema'
+import type { Doc, Investment, InvestmentsPage, News, Project, Publication, Tender, Vacancy } from '@/schema'
 import {createClient, groq} from 'next-sanity'
 
 const client = createClient({
@@ -542,6 +542,26 @@ export async function getInvestmentsPage():Promise<InvestmentsPage | null>  {
       _id,
       heading,
       intro,
+    }
+    `)
+
+}
+
+
+export async function getInvestments():Promise<Investment[]>  {
+
+  return client.fetch(
+    groq`
+    *[ _type == "investment" ] | order(coalesce(publishedAt, _createdAt) desc) {
+      _id,
+      title,
+      slug,
+      summary,
+      sector,
+      publishedAt,
+      "image": image.asset->url,
+      "imageAlt": image.alt,
+      "document": document.asset->url,
     }
     `)
 

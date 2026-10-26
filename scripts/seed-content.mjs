@@ -63,15 +63,34 @@ const publications = [
   },
 ];
 
+const investments = [
+  {
+    _id: "investment-amathole-investment-opportunities",
+    title: "Amathole District Municipality Investment Opportunities",
+    slug: "amathole-district-municipality-investment-opportunities",
+    summary:
+      "An investment booklet profiling opportunities across agriculture and agro-processing, tourism, the ocean economy, green economy, property development, manufacturing, and enabling economic infrastructure.",
+    sector: "Cross-sector",
+    image: "public/images/amathole-investment-opportunities.webp",
+    imageAlt: "Cover of the Amathole District Municipality investment booklet",
+    document:
+      "public/documents/amathole-district-municipality-investment-opportunities.pdf",
+  },
+];
+
 const investmentsPage = {
   _id: "investmentsPage",
   _type: "investmentsPage",
   heading: "Investments",
   intro:
-    "Please stay tuned for new investment news to be published in the near future",
+    "Explore investment opportunities across the Amathole District Municipality's priority economic sectors, from agriculture and tourism to the ocean and green economy.",
 };
 
-const ids = [...publications.map((publication) => publication._id), investmentsPage._id];
+const ids = [
+  ...publications.map((publication) => publication._id),
+  ...investments.map((investment) => investment._id),
+  investmentsPage._id,
+];
 const existingIds = new Set(
   await client.fetch(`*[_id in $ids]._id`, { ids }),
 );
@@ -110,10 +129,43 @@ for (const publication of publications) {
 }
 
 if (existingIds.has(investmentsPage._id)) {
-  console.log(`Skipping ${investmentsPage._id} (already exists)`);
+  await client.createOrReplace(investmentsPage);
+  console.log(`Updated ${investmentsPage._id}`);
 } else {
   await client.create(investmentsPage);
   console.log(`Created ${investmentsPage._id}`);
+}
+
+for (const investment of investments) {
+  if (existingIds.has(investment._id)) {
+    console.log(`Skipping ${investment._id} (already exists)`);
+    continue;
+  }
+
+  const [imageAsset, fileAsset] = await Promise.all([
+    uploadAsset("image", investment.image),
+    uploadAsset("file", investment.document),
+  ]);
+
+  await client.create({
+    _id: investment._id,
+    _type: "investment",
+    title: investment.title,
+    slug: { _type: "slug", current: investment.slug },
+    summary: investment.summary,
+    sector: investment.sector,
+    image: {
+      _type: "image",
+      asset: { _type: "reference", _ref: imageAsset._id },
+      alt: investment.imageAlt,
+    },
+    document: {
+      _type: "file",
+      asset: { _type: "reference", _ref: fileAsset._id },
+    },
+  });
+
+  console.log(`Created ${investment._id}`);
 }
 
 console.log("Done.");

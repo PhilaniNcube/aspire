@@ -335,6 +335,73 @@ export interface InvestmentsPage extends SanityDocument {
 }
 
 /**
+ * Investments
+ *
+ *
+ */
+export interface Investment extends SanityDocument {
+  _type: "investment";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Summary — `text`
+   *
+   *
+   */
+  summary?: string;
+
+  /**
+   * Sector — `string`
+   *
+   *
+   */
+  sector?:
+    | "Agriculture & Agro-Processing"
+    | "Tourism"
+    | "Ocean Economy"
+    | "Green Economy"
+    | "Property Development"
+    | "Manufacturing"
+    | "Economic Infrastructure"
+    | "Cross-sector";
+
+  /**
+   * Published At — `date`
+   *
+   *
+   */
+  publishedAt?: string;
+
+  /**
+   * Cover Image — `image`
+   *
+   *
+   */
+  image?: string;
+  imageAlt?: string;
+
+  /**
+   * Investment Document — `file`
+   *
+   *
+   */
+  document?: string;
+}
+
+/**
  * Vacancies
  *
  *
@@ -417,4 +484,4 @@ export interface Author extends SanityDocument {
   email?: string;
 }
 
-export type Documents = Project | Doc | Tender | News | Vacancy | Author | Publication | InvestmentsPage;
+export type Documents = Project | Doc | Tender | News | Vacancy | Author | Publication | InvestmentsPage | Investment;
