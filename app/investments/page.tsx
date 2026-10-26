@@ -1,14 +1,22 @@
 import { TypographyH1 } from "@/components/typography";
 import Container from "@/components/ui/Container";
+import { getInvestmentsPage } from "@/sanity/sanity-utils";
 
-const Investments = () => {
+export const revalidate = 60;
+
+const Investments = async () => {
+  const page = await getInvestmentsPage();
+
   return (
     <Container>
-      <TypographyH1>Investments</TypographyH1>
+      <TypographyH1>{page?.heading ?? "Investments"}</TypographyH1>
       <div className="min-h-screen">
-        <h2 className="text-lg font-medium mt-4">Please stay tuned for new investment news to be published in the near future</h2>
+        {page?.intro ? (
+          <h2 className="text-lg font-medium mt-4">{page.intro}</h2>
+        ) : null}
       </div>
     </Container>
   );
 };
+
 export default Investments;

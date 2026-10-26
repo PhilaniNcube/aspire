@@ -6,6 +6,7 @@ export async function POST(request: Request) {
   console.log(req);
 
 	revalidatePath("/publications", "layout");
+	revalidatePath("/investments", "layout");
 	revalidatePath("/news", "layout");
 	revalidatePath("/vacancies", "layout");
 	revalidatePath("/documents", "layout");

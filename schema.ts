@@ -267,6 +267,74 @@ export interface News extends SanityDocument {
 }
 
 /**
+ * Publications
+ *
+ *
+ */
+export interface Publication extends SanityDocument {
+  _type: "publication";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Published At — `date`
+   *
+   *
+   */
+  publishedAt?: string;
+
+  /**
+   * Cover Image — `image`
+   *
+   *
+   */
+  image?: string;
+  imageAlt?: string;
+
+  /**
+   * Document — `file`
+   *
+   *
+   */
+  document?: string;
+}
+
+/**
+ * Investments Page
+ *
+ *
+ */
+export interface InvestmentsPage extends SanityDocument {
+  _type: "investmentsPage";
+
+  /**
+   * Heading — `string`
+   *
+   *
+   */
+  heading?: string;
+
+  /**
+   * Intro — `text`
+   *
+   *
+   */
+  intro?: string;
+}
+
+/**
  * Vacancies
  *
  *
@@ -349,4 +417,4 @@ export interface Author extends SanityDocument {
   email?: string;
 }
 
-export type Documents = Project | Doc | Tender | News | Vacancy | Author;
+export type Documents = Project | Doc | Tender | News | Vacancy | Author | Publication | InvestmentsPage;
